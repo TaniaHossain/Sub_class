@@ -1,39 +1,34 @@
 class Super_class {
-   int num = 20;
-
-   // display method of superclass
+   int age, num = 20;
    public void display() {
-      System.out.println("This is the display method of superclass");
+      System.out.println("This is the display method of SuperClass");
    }
+   Super_class(int age) {
+	      this.age = age; 		 
+	   }
+   public void getAge() {
+	      System.out.println("The value of the variable named Age in Super Class is: " +age);
+	   }
 }
-
 public class Sub_class extends Super_class {
-   int num = 10;
-
-   // display method of sub class
+   static int num = 10;
    public void display() {
-      System.out.println("This is the display method of subclass");
+      System.out.println("This is the display method of SubClass");
    }
-
+   Sub_class(int age) {
+	      super(age);
+	   }
    public void my_method() {
-      // Instantiating subclass
-      Sub_class sub = new Sub_class();
-
-      // Invoking the display() method of sub class
+      Sub_class sub = new Sub_class(num);
       sub.display();
-
-      // Invoking the display() method of superclass
       super.display();
-
-      // printing the value of variable num of subclass
-      System.out.println("value of the variable named num in sub class:"+ sub.num);
-
-      // printing the value of variable num of superclass
-      System.out.println("value of the variable named num in super class:"+ super.num);
+      System.out.println("value of the variable named Num in Sub Class:"+ Sub_class.num);
+      System.out.println("value of the variable named Num in Super Class:"+ super.num);
    }
-
    public static void main(String args[]) {
-      Sub_class obj = new Sub_class();
+      Sub_class obj = new Sub_class(num);
       obj.my_method();
+      Sub_class s = new Sub_class(24);
+      s.getAge();
    }
 }
